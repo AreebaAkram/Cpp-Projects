@@ -1,0 +1,329 @@
+#include<iostream>
+#include<process.h>
+#include <fstream>
+#include <iomanip>
+using namespace std;
+class Hospital{
+	public:
+		string name1;
+		string name2;
+		string speciality;
+		int fees;
+		int key;
+		void Hospital_details();
+    	void reg(){
+		cout<<endl<<"\t\t\t\tfor registration enter name: ";
+		cin>>name1;}
+			  int keys(){
+			  	cout<<"\t\t\t\tSelect one key"<<endl;
+			  	cout<<"\t\t\t\t345   444   890  456"<<endl;
+	          cout<<endl<<"\t\t\t\tEnter the key:";
+	    	  cin>>key;
+	          if((key != 345)&&(key !=444)&&(key != 890)&&(key != 456)){
+	    	  cout<<endl<<"\t\t\t\tEnter valid key"<<endl;
+		}
+	}
+	void add_Dr(){
+		cout<<endl<<"\t\t\t\tEnter name: ";
+		cin>>name2;	
+		cout<<"\t\t\t\tEnter his\her speciality: ";
+		cin>>speciality;
+		cout<<"\t\t\t\tEnter fees: ";
+		cin>>fees;
+		} 
+		void show_Dr(){
+			cout<<"\t\t\t\t"<<name2<<"       "<<speciality<<"       "<<fees<<"       "<<"04:30_11:00 PM";
+    	}  
+	};
+	class Doctors:public Hospital{
+		public:
+			int num;
+		    string Dr;
+		    string xy;
+		    void reg_dr(){
+				cout<<endl<<"\t\t\t\t***********************"<<endl<<endl;
+				cout<<"\t\t\t\t\Do you want to register any doctor(Y/N)";
+				cin>>xy;
+				if((xy=="yes")||(xy=="y")){
+					cout<<"\t\t\t\tHow many doctors you want to register: ";
+					cin>>num;
+					for(int i=1; i<=num; i++){
+					Hospital::add_Dr();
+					cout<<endl<<"\t\t\t\tDta of newly registered Doctors: "<<endl;
+					Hospital::show_Dr();
+					}
+				}
+				else{
+				cout<<"\t\t\t\tNo newly registered Doctor";
+				cout<<"\t\t\t\t***************************";
+				}}
+				void show_data_dr(){
+				cout<<endl<<"\t\t\t\tData of Registered doctors are shown below for patients ease"<<endl<<endl;
+		cout<<endl<<"\t\t\t\tDo you want to show data of Cardiologist OR Gastroenterologist ? ";
+		cin>>Dr;
+	    if (Dr=="cardiologist") {
+			cout<<"\t\t\t\tData of Cardiologist are give:"<<endl<<endl;
+			cout<<"\t\t\t\tNAME               SPECIALITY               FEES               TIMING "<<endl<<endl;
+			cout<<endl<<"\t\t\t\tDr.Ahmad Nawaz     Cardiologist             Rs.5000          03:00_09:00 PM"<<endl;
+	    	cout<<"\t\t\t\tDr.Huma Batool     Cardiac Surgeon          Rs.105,000       04:30_10:00 PM"<<endl;
+			cout<<"\t\t\t\tDr.Hamza Adeel     Cardiac Care             Rs.3000          08:30_01:00 AM"<<endl;
+			cout<<"\t\t\t\tDr.Zunaira Abid    cardiac geneticists      Rs.8000          03:00_9:00 PM"<<endl;
+			cout<<"\t\t\t\tDr.Almeer Ali      Cardiologist             Rs.8000          04:30_10:00 PM"<<endl;
+			
+		}
+	    else if(Dr=="gastroenterologist") {
+			cout<<endl<<"\t\t\t\tData of Gastroenterologist are give:"<<endl<<endl;
+				cout<<"\t\t\t\tNAME               SPECIALITY               FEES               TIMING "<<endl<<endl;
+			cout<<endl<<"\t\t\t\tDr.Ahmad Nawaz     Gastroenterologist           Rs.3000          03:00_09:00 PM"<<endl;
+	    	cout<<"\t\t\t\tDr.Huma Batool     Radiologist                  Rs.30,000        01:30_10:00 PM"<<endl;
+			cout<<"\t\t\t\tDr.Hamza Adeel     Endoscopy technician         Rs.15,000        08:30_01:00 AM"<<endl;
+			cout<<"\t\t\t\tDr.Zunaira Abid    Oncologist                   Rs.45,000        03:00_9:00 PM"<<endl;
+			cout<<"\t\t\t\tDr.Almeer Ali      Surgeon                      Rs.12,0000       04:30_10:00 PM"<<endl;	
+		}
+		else{
+			cout<<endl<<"\t\t\t\tNo such Doctors are availble in this Hospital "<<endl;
+	}	}	
+	};
+		void Hospital::Hospital_details(){
+		cout<<"\t\t******************************************************"<<endl;
+		cout<<"\t\t\tHospital Name:         GCT Hospital"<<endl;
+		cout<<"\t\t\tLocation:              6390 Northwest Child Hospital ON L4V "<<endl;
+		cout<<"\t\t\tTotal Area:            51 TO 71 Cubic Feet/Acre"<<endl;
+		cout<<"\t\t\tType:                  Private"<<endl;
+		cout<<"\t\t\tTotal Departments      6" <<endl;
+		cout<<"\t\t\tServices               Surgery, Endoscopy, Rdio imaging, ERCP, Angioplasty, Cardiac CT"<<endl;
+		cout<<"\t\t\tTiming                 24/7"<<endl;
+		cout<<"\t\t\tBranches               No Brach"<<endl; 
+	} 
+	class Patient: public Doctors{
+	public:
+		string name_p;
+		string address_p;
+		int phn_num_p;
+		string dis_p;
+		string choices;
+		string Dr_p;
+		void DataP(){
+			cout<<"\t\t\t\tEnter his/her name: ";
+			cin>>name_p;
+			cout<<endl<<"\t\t\t\tEnter his/her address: ";
+			cin>>address_p;
+			cout<<endl<<"\t\t\t\tEnter Phone number: ";
+			cin>>phn_num_p;
+			cout<<endl<<"\t\t\t\tEnter Disease: ";
+			cin>>dis_p;
+			cout<<"\t\t\t\t***********************************"<<endl;
+			}
+			void show_p(){
+				cout<<"\t\t\t\t"<<name_p<<endl;
+				cout<<"\t\t\t\t"<<address_p<<endl;
+				cout<<"\t\t\t\t"<<phn_num_p<<endl;
+				cout<<"\t\t\t\t"<<dis_p<<endl;
+			}
+			void appointment(){
+			cout<<endl<<"\t\t\t\tDo you want to make an appointment for "<<name_p<<"(y/n)?";
+			cin>>choices;
+			if((choices=="Yes")||(choices=="y"))
+{           cout<<endl<<"\t\t\t\tSelect Doctor for appointment";
+			Doctors::show_data_dr();
+			cout<<endl<<"\t\t\t\tEnter Dr name, you choose: ";
+			cin>>Dr_p;
+			if((Dr_p=="Ahmad Nawaz")||(Dr_p=="Huma Batool")||(Dr_p=="Hamza Adeel")||(Dr_p=="Zunaira Abid")||(Dr_p=="Almeer Ali")){
+				cout<<endl<<"\t\t\t\tYour appointment is booked";
+				cout<<endl<<"\t\t\t\tWe will text you soon";
+			}
+			else{
+				cout<<"\t\t\t\tThis Doctor is not available here";
+			}
+			}
+			else{
+				cout<<"\t\t\t\tPatient is Registered"<<endl;
+			}
+			}
+	};
+		class payment: public Patient{
+		public:
+			string payment;
+			string yn;
+			string choice3;
+			void payments(){
+			cout<<"\t\t\t\tAvailable payment methods: "<<endl;
+			cout<<"\t\t\t\t(a) Online payment      (b)Cash Payment";
+			cout<<endl<<"\t\t\t\tselect one:";
+			cin>>payment;
+			if(payment=="online"){
+				cout<<endl<<"\t\t\t\tAre you already registered as patient? (y/n) ";
+				cin>>yn;
+				if((yn=="y")||(yn=="yes")){
+				cout<<endl<<"\t\t\t\tValidate data: ";
+				Patient::show_p();
+				cout<<"\t\t\t\t\is it you?";
+				cin>>choice3;
+				if(choice3=="Yes"){
+					cout<<endl<<"\t\t\t\tYou can send payment now.";
+				}
+				else{
+					Patient::DataP();
+				}
+				}
+				else{
+					Patient::DataP();
+				}
+		}
+			else{
+				cout<<endl<<"\t\t\t\tPay on counter";
+			}}
+	};
+	class appointments: public Patient{
+		public:
+			int nums;
+			void appoint(){
+				cout<<"\t\t\t\tHow many patients do you want to register: ";
+				cin>>nums;
+				for(int i=1; i<=nums; i++){
+					Patient::DataP();
+					Patient::appointment();
+					
+				}}
+				void patient_his(){
+					cout<<"\t\t\t\tHistory of patients given below:"<<endl;
+					Patient::show_p();
+				}
+	};
+	class Hospital_res{
+		public:
+		int hosp_res(){
+		int res[10]={0,550,278,2,521,609,234,5,20,80};
+		cout<<endl<<"\t\t\t\tSize of staff: \t\t";
+		cout<<res[1];
+		cout<<endl<<"\t\t\t\tRooms: \t\t";
+		cout<<res[2];
+		cout<<endl<<"\t\t\t\tPharmacy: \t\t";
+		cout<<res[3];
+		cout<<endl<<"\t\t\t\tBeds: \t\t";
+		cout<<res[4];
+		cout<<endl<<"\t\t\t\tSurgical Lights: \t\t";
+		cout<<res[5];
+		cout<<endl<<"\t\t\t\tStretchers: \t\t";
+		cout<<res[6];
+		cout<<endl<<"\t\t\t\tECG Machines: \t\t";
+		cout<<res[7];
+		cout<<endl<<"\t\t\t\tXY Rays: \t\t";
+		cout<<res[8];
+		cout<<endl<<"\t\t\t\tAmbulances: \t\t";
+		cout<<res[9];
+	}
+	};
+	class pharmacy:public payment{
+		public:
+			string pharmacy;
+			string medicine;
+			void pharmacy_(){
+					string phar[4]={"Panadol","Esva","Axesom","Avil"};
+					string phar2[4]={"antacids","Tagamet", "Reglan","Prevacid"};
+		cout<<"\t\t\t\tselect pahramcy (M/G) ";
+		cout<<"\t(a)Musab's Pharmacy\t(b)Good neighbor Pharmacy: ";
+		cin>>pharmacy;
+		if(pharmacy=="M"){
+			cout<<"\t\t\t"<<phar[0]<<endl; cout<<"\t\t\t"<<phar[1]<<endl; cout<<"\t\t\t"<<phar[2]<<endl; cout<<"\t\t\t"<<phar[3]<<endl;
+			cout<<"\t\t\t\tselect medicine: ";
+			cin>>medicine;
+			if((medicine==phar[0])||(medicine==phar[1])||(medicine==phar[2])||(medicine==phar[3])){
+			payment::payments();
+			}
+			else{
+				cout<<endl<<"\t\t\t\tSorry,This medicine not available in this pharmarcy";
+		}
+		}
+		else if(pharmacy=="G"){
+				cout<<"\t\t\t"<<phar2[0]<<endl; cout<<"\t\t\t"<<phar2[1]<<endl; cout<<"\t\t\t"<<phar2[2]<<endl; cout<<"\t\t\t"<<phar2[3]<<endl;
+					cin>>medicine;
+			if((medicine==phar2[0])||(medicine==phar2[1])||(medicine==phar2[2])||(medicine==phar2[3])){
+			payment::payments();
+			}
+			else{
+				cout<<endl<<"\t\t\t\tSorry,This medicine not available in this pharmarcy";
+		}
+		}
+		else{
+		cout<<endl<<"\t\t\t\tselect given pharmacy ";
+		}
+		}
+	};
+int main(){
+	int choice;
+	Hospital a;
+	Doctors d;
+    appointments A,B;
+    payment p;
+    Hospital_res h;
+    pharmacy P;
+string Admin;
+cout<<"\t\t\t\tHOSPITAL MANAGMENT SYSTEM"<<endl<<endl;
+cout<<"\t\t\t\tEnter Admin Name: ";
+cin>>Admin;
+if((Admin == "Areeba")||(Admin == "Huma")){
+cout<<endl<<"\t\t\t\tYes, you are an admin"<<endl;
+}
+else{
+	cout<<endl<<"\t\t\t\tyou are not an admin"<<endl;
+	cout<<"\t\t\t\t enter valid admin name or registration key to register yourself";
+	a.reg();
+	a.keys();
+}
+do{
+	cout<<endl<<"\t\t\t\t01. Hospital Details"<<endl;
+	cout<<"\t\t\t\t02. Data of Doctor"<<endl;
+	cout<<"\t\t\t\t03. Register new Doctor"<<endl;
+	cout<<"\t\t\t\t04. Make an appointment"<<endl;
+	cout<<"\t\t\t\t05. View Hospital resources"<<endl;
+	cout<<"\t\t\t\t06. Patient hstory"<<endl;
+	cout<<"\t\t\t\t07. Pharmacy details"<<endl;
+	cout<<"\t\t\t\t08. Payment"<<endl;
+	cout<<"\t\t\t\t09. Exist"<<endl<<endl;
+	cout<<"\t\t\t\t Select the best option from (1/2/3/4/5/6/7/8/9) ";
+	cin>>choice;
+	switch (choice)
+	{
+		case 1:
+		    a.Hospital_details();
+			break;
+			
+		case 2:
+			d.reg_dr();
+			d.show_data_dr();
+			break;
+				case 3:
+					d.reg_dr();
+					break;
+					case 4: 
+		         A.appoint();
+				break;
+				case 5:
+				h.hosp_res();
+				break;
+				case 6:
+			       A.patient_his();
+			       break;
+			       case 7:
+			    P.pharmacy_();
+			    break;
+				   case 8:
+					p.payments();
+					break;	
+					case 9:
+							cout<<endl<<"\t\t\t........program is existing.........\t\t";
+						 if(choice == 5)
+                          {
+                            exit(1);
+                            }
+						break;
+						default:
+							cout<<"\t\t\t**************************\t\t";
+							cout<<endl<<"\t\t\tThis is not exist. Try again! ";
+						}
+}
+while(choice !=9);
+return 0;
+}
+
